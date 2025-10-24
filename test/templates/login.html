@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: #0d0d0d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #e5e5e5;
+    }
+
+    .login-container {
+      background: #1a1a1a;
+      padding: 40px 50px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      width: 350px;
+      text-align: center;
+      border: 1px solid #2b2b2b;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: #bfbfbf;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background-color: #121212;
+      color: #e5e5e5;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #5563DE;
+      box-shadow: 0 0 6px rgba(85, 99, 222, 0.4);
+      outline: none;
+    }
+
+    button {
+      background-color: #5563DE;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+      background-color: #3e4bc6;
+      transform: translateY(-1px);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #8aa1ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #b3c3ff;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form method="POST" action="{{ url_for('login') }}">
+      <label>Username
+        <input type="text" name="username" required>
+      </label>
+      <label>Password
+        <input type="password" name="password" required>
+      </label>
+      <button type="submit">Login</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">← Back to home</a>
+
+  </div>
+</body>
+</html>

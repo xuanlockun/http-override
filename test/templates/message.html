@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Chat - Message {{ message_id }}</title>
+  <style>
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      color: #e5e5e5;
+    }
+
+    .chat-box {
+      width: 400px;
+      background: #1a1a1a;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: 1px solid #2b2b2b;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .message {
+      padding: 12px 16px;
+      border-radius: 16px;
+      max-width: 80%;
+      word-wrap: break-word;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .user {
+      align-self: flex-end;
+      background-color: #3b5bfd;
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .admin {
+      align-self: flex-start;
+      background-color: #2b2b2b;
+      color: #dcdcdc;
+      border-bottom-left-radius: 4px;
+    }
+
+    .meta {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    a {
+      margin-top: 25px;
+      text-decoration: none;
+      color: #8aa1ff;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #b3c3ff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-box">
+    <div class="meta">Message ID: {{ message_id }}</div>
+
+    <div class="message user">
+      {{ content }}
+    </div>
+
+    <div class="message admin">
+      We have received your message.
+    </div>
+  </div>
+
+  <a href="{{ url_for('index') }}">← Back to home</a>
+</body>
+</html>
