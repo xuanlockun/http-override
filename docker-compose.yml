@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  app:
+    build: ./app
+    container_name: ctf_app
+    networks:
+      - ctfnet
+  nginx:
+    build: ./nginx
+    container_name: ctf_nginx
+    ports:
+      - "31289:80" # exposed on an unusual port as requested
+    depends_on:
+      - app
+    networks:
+      - ctfnet
+
+
+networks:
+  ctfnet:
+    driver: bridge
